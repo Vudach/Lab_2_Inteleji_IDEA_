@@ -5,23 +5,24 @@ public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Введите значение x: ");
     double x = scanner.nextDouble();
-    System.out.print("Введите точность (например, 0.0001): ");
-    double epsilon = scanner.nextDouble();
+    System.out.print("Введите точность: ");
+    double n = scanner.nextDouble();
     double result = 0.0;
-    double term = 1.0;
-    int n = 0;
-    while (Math.abs(term) > epsilon) {
-        term = Math.pow(-1, n) * Math.pow(x, n) / factorial(n);
-        result += term;
-        n++;
+   // double term = 1.0;
+    double i = 0;
+    while (i < n)
+     {
+        result += Math.pow(-1, i) * Math.pow(x, i) / factorial(i);
+        //result += term;
+        i++;
     }
-    System.out.printf("Значение e^(-%.4f) с точностью %.4f: %.8f\n", x, epsilon, result);
+    System.out.printf("Значение e^(-%.4f) с точностью %.4f: %.8f\n", x, n, result);
 }
-public static long factorial(int n) {
-    long fact = 1;
-    for (int i = 2; i <= n; i++) {
-        fact *= i;
+public static double factorial(double n) {
+    double r=1;
+    for (int i =1; i<= n; i++){
+        r=r*i;
     }
-    return fact;
+    return r;
 }
 }
