@@ -11,9 +11,9 @@ public static void main(String[] args) {
     double term = 1.0;
     int n = 0;
     while (Math.abs(term) > epsilon) {
+        term = Math.pow(-1, n) * Math.pow(x, n) / factorial(n);
         result += term;
         n++;
-        term = Math.pow(-1, n) * Math.pow(x, n) / factorial(n);
     }
     System.out.printf("Значение e^(-%.4f) с точностью %.4f: %.8f\n", x, epsilon, result);
 }
